@@ -1,27 +1,28 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
     <header className="header">
       <div className="container">
         <div className="logo">
-          <Link to="/">
-            <img src="../assets/logo.png" alt="Company Logo" />
+          <Link href="/">
+            <Image src="/logo.png" width={70} height={70} alt="Company Logo" />
           </Link>
         </div>
         <nav className="nav-links">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link to="profile">Profile</Link>
+              <Link href="/profile">Profile</Link>
             </li>
             <li>
-              <Link to="blog">Blog</Link>
+              <Link href="/blog">Blog</Link>
             </li>
             <li>
-              <Link to="contact">Contact</Link>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
         </nav>

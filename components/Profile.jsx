@@ -1,4 +1,4 @@
-import "./Profile.css";
+"use client";
 import { useState } from "react";
 
 function Profile() {
