@@ -1,0 +1,33 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.contact-form {
+  width: 400px;
+}
+
+.contact-info-box,
+.form-input {
+  margin-bottom: 1rem;
+}
+
+.contact-container > p {
+  margin-block: 1rem;
+  font-weight: bold;
+}
+
+.contact-container > h2 {
+  margin-bottom: 2rem;
+}
+
+.form-input > label {
+  vertical-align: top;
+}
+
+.form-input > textarea {
+  height: 3rem;
+}
