@@ -3,7 +3,7 @@ import { useState } from "react";
 import productsData from "../../components/productsData";
 import ProductsGallery from "../../components/ProductsGallery";
 import Search from "../../components/Search";
-import "../../styles/home.css";
+import "../../public/styles/home.css";
 
 function Home() {
   const [isSorted, setIsSorted] = useState(false);
