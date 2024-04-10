@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import blogData from "./blogData";
 import Image from "next/image";
 
@@ -8,24 +9,32 @@ function BlogList() {
   //   event.target.src =
   //     "https://images.unsplash.com/photo-1669568625853-9a5ae8de190e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZXJyb3IlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D";
   // };
+  const [blogData, setBlogData] = useState([]);
+  useEffect(() => {
+    fetch("https://dummyjson.com/recipes")
+      .then((res) => res.json())
+      .then((res) => setBlogData(res.recipes));
+  }, []);
+
   return (
     <div className="blog-list-container">
       {blogData.map((blog) => (
         <div key={blog.id} className="blog-item">
-          <img
-            src={blog.photo}
-            alt={blog.title}
+          <Image
+            src={blog.image}
+            alt={blog.name}
             className="blog-item-photo"
+            width={400}
+            height={200}
+            // fill
             // onError={handleImageError}
           />
           <div className="blog-item-details">
-            <h2 className="blog-item-title">{blog.title}</h2>
-            <p className="blog-item-description">{blog.description}</p>
-            <p className="blog-item-publish-date">
-              Published on: {blog.publishDate}
-            </p>
-            <button href={blog.readMoreLink} className="blog-item-read-more">
-              Read More
+            <h2 className="blog-item-title">{blog.name}</h2>
+            <p className="blog-item-description">{blog.instructions}</p>
+            <p className="blog-item-publish-date">Rating: {blog.rating}</p>
+            <button href={blog.reviewCount} className="blog-item-read-more">
+              Reviews
             </button>
           </div>
         </div>

@@ -1,8 +1,15 @@
-function Product({ title, description, image }) {
+import Image from "next/image";
+
+function Product({ title, description, images }) {
   return (
     <div className="product">
       <div className="product-img-container">
-        <img src={image} alt={title} />
+        <Image
+          src={images[0]}
+          alt={title}
+          fill
+          // sizes="(max-width: 600px) 300px, 400px"
+        />
       </div>
       <h2>{title}</h2>
       <p>{description}</p>

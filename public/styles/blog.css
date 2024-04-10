@@ -19,17 +19,18 @@
 }
 
 .blog-item {
+  position: relative;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.blog-item-photo {
+/* .blog-item-photo {
   width: 100%;
   height: 300px;
   object-fit: cover;
-}
+} */
 
 .blog-item-details {
   padding: 20px;
