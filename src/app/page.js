@@ -1,18 +1,24 @@
 "use client";
-import { useState } from "react";
-import productsData from "../../components/productsData";
+import { useState, useEffect } from "react";
+// import productsData from "../../components/productsData";
 import ProductsGallery from "../../components/ProductsGallery";
 import Search from "../../components/Search";
 import "../../public/styles/home.css";
 
 function Home() {
   const [isSorted, setIsSorted] = useState(false);
-  const [productsList, setProductsList] = useState(productsData);
+  const [productsList, setProductsList] = useState([]);
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((res) => setProductsList(res.products));
+  }, []);
 
   const handleSortClick = () => {
     setProductsList(
       isSorted
-        ? productsData
+        ? productsList
         : productsList.slice().sort((a, b) => a.title.localeCompare(b.title))
     );
     setIsSorted(!isSorted);
