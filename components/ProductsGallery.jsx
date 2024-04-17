@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 
-function Product({ title, description, images }) {
+function Product({ id, title, description, images }) {
   return (
     <div className="product">
       <div className="product-img-container">
@@ -13,7 +14,10 @@ function Product({ title, description, images }) {
       </div>
       <h2>{title}</h2>
       <p>{description}</p>
-      <button>Add to Cart</button>
+      <Link href={`/${id}`}>
+        console.log(title);
+        <button>Add to Cart</button>
+      </Link>
     </div>
   );
 }
@@ -21,8 +25,8 @@ function Product({ title, description, images }) {
 export default function ProductsGallery({ products }) {
   return (
     <div className="products-container">
-      {products.map((product, idx) => (
-        <Product key={idx} {...product} />
+      {products.map((product, id) => (
+        <Product key={id} {...product} />
       ))}
     </div>
   );
