@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import blogData from "./blogData";
 import Image from "next/image";
+import Link from "next/link";
 
 function BlogList() {
   // const handleImageError = (event) => {
@@ -20,22 +21,26 @@ function BlogList() {
     <div className="blog-list-container">
       {blogData.map((blog) => (
         <div key={blog.id} className="blog-item">
-          <Image
-            src={blog.image}
-            alt={blog.name}
-            className="blog-item-photo"
-            width={400}
-            height={200}
-            // fill
-            // onError={handleImageError}
-          />
-          <div className="blog-item-details">
-            <h2 className="blog-item-title">{blog.name}</h2>
-            <p className="blog-item-description">{blog.instructions}</p>
-            <p className="blog-item-publish-date">Rating: {blog.rating}</p>
-            <button href={blog.reviewCount} className="blog-item-read-more">
-              Reviews
-            </button>
+          <div className="image-container">
+            <Image
+              src={blog.image}
+              alt={blog.name}
+              className="blog-item-photo"
+              width={400}
+              height={200}
+              objectFit="cover"
+              objectPosition="center"
+            />
+          </div>
+          <div>
+            <div className="blog-item-details">
+              <h2 className="blog-item-title">{blog.name}</h2>
+              <p className="blog-item-description">{blog.instructions}</p>
+              <p className="blog-item-publish-date">Rating: {blog.rating}</p>
+              <Link href={`/blog/${blog.id}`}>
+                <button className="blog-item-read-more">Read More</button>
+              </Link>
+            </div>
           </div>
         </div>
       ))}
