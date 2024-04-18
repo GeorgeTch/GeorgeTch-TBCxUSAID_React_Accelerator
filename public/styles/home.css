@@ -73,3 +73,10 @@
   width: 70%;
   align-self: center;
 }
+
+.logout-btn {
+  align-self: flex-end;
+  background-color: rgb(24, 24, 24);
+  border-radius: 2rem;
+  font-weight: bold;
+}

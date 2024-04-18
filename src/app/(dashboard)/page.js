@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-// import productsData from "../../components/productsData";
 import ProductsGallery from "../../../components/ProductsGallery";
 import Search from "../../../components/Search";
 import "/public/styles/home.css";

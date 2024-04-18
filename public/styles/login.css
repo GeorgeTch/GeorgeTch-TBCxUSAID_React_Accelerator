@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  background-color: rgb(250, 250, 250);
+  padding: 1rem;
+  box-shadow: 5px 5px 2px rgb(248, 246, 246);
+}
+
+label,
+input,
+button {
+  padding: 0.5rem;
+}
+
+button {
+  margin: 0.5rem;
+  cursor: pointer;
+  background-color: rgb(191, 191, 191);
+  font-weight: bold;
+}
+
+.login-form input {
+  margin-bottom: 0.5rem;
+}
