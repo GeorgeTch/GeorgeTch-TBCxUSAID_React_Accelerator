@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import "../../../public/styles/home.css";
+import "../../../../public/styles/home.css";
 
 function ProductItemPage({ params }) {
   const [item, setItem] = useState([]);
