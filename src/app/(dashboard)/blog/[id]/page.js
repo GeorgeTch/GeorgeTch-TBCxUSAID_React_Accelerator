@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import "../../../../public/styles/blog.css";
+import "../../../../../public/styles/blog.css";
 
 function ItemPage({ params }) {
   const [item, setItem] = useState([]);

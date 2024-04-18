@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Logout from "./Logout";
 
 export default function Header() {
   return (
