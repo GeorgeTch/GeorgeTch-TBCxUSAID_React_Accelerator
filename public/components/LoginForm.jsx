@@ -2,18 +2,23 @@
 import { useState } from "react";
 
 function LoginForm({ handleLogin }) {
-  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <form className="login-form">
-      <label htmlFor="email">Email</label>
+    <form
+      className="login-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
+      <label htmlFor="userName">Username</label>
       <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Enter Your Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        type="text"
+        id="userName"
+        name="userName"
+        placeholder="Enter Your Username"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
       />
       <label htmlFor="password">Password</label>
       <input
@@ -24,7 +29,7 @@ function LoginForm({ handleLogin }) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit" onClick={() => handleLogin(email, password)}>
+      <button type="submit" onClick={() => handleLogin(userName, password)}>
         Log in
       </button>
     </form>

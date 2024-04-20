@@ -1,4 +1,4 @@
-import Contact from "../../../../components/Contact";
+import Contact from "../../../../public/components/Contact";
 import "../../../../public/styles/contact.css";
 
 function ContactPage() {

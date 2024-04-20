@@ -76,7 +76,11 @@
 
 .logout-btn {
   align-self: flex-end;
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(13, 13, 13);
   border-radius: 2rem;
   font-weight: bold;
+}
+
+.logout-btn:hover {
+  opacity: 0.6;
 }

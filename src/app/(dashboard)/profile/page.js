@@ -1,4 +1,4 @@
-import Profile from "../../../../components/Profile";
+import Profile from "../../../../public/components/Profile";
 import "../../../../public/styles/profile.css";
 
 function ProfilePage() {

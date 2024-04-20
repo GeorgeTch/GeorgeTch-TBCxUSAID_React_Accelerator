@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import ProductsGallery from "../../../components/ProductsGallery";
-import Search from "../../../components/Search";
+import ProductsGallery from "../../../public/components/ProductsGallery";
+import Search from "../../../public/components/Search";
 import "/public/styles/home.css";
+import Logout from "../../../public/components/Logout";
 
 function Home() {
   const [isSorted, setIsSorted] = useState(false);
@@ -25,7 +26,7 @@ function Home() {
 
   const debounceHandler = (value) => {
     setTimeout(() => {
-      const filteredProducts = productsData.filter((product) =>
+      const filteredProducts = productsList.filter((product) =>
         product.title.toLowerCase().includes(value.toLowerCase())
       );
       setProductsList(filteredProducts);

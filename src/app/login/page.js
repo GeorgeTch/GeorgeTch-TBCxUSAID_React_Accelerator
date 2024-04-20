@@ -1,20 +1,22 @@
 "use server";
 import { cookies } from "next/headers";
 import "../../../public/styles/login.css";
-import LoginForm from "../../../components/LoginForm";
+import LoginForm from "../../../public/components/LoginForm";
 import { login } from "../(dashboard)/actions";
 import { redirect } from "next/navigation";
 
 async function LoginPage() {
   const cookiesStore = cookies();
   const cookie = cookiesStore.get("auth");
-  console.log(cookie);
+  console.log("coockie on login page: ", cookie);
 
   if (cookie) {
+    console.log("trying to redirect from login page to home");
     redirect("/");
   }
 
   const handleLogin = async (username, password) => {
+    "use server";
     await login(username, password);
   };
 
