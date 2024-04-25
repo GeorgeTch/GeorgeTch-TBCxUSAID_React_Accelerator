@@ -1,48 +1,48 @@
-"use client";
-import { useState, useEffect } from "react";
 import ProductsGallery from "../../../public/components/ProductsGallery";
 import Search from "../../../public/components/Search";
 import "/public/styles/home.css";
 import Logout from "../../../public/components/Logout";
 
-function Home() {
-  const [isSorted, setIsSorted] = useState(false);
-  const [productsList, setProductsList] = useState([]);
+async function Home() {
+  // const [isSorted, setIsSorted] = useState(false);
+  // const [productsList, setProductsList] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://dummyjson.com/products")
+  //     .then((res) => res.json())
+  //     .then((res) => setProductsList(res.products));
+  // }, []);
+  // const handleSortClick = () => {
+  //   setProductsList(
+  //     isSorted
+  //       ? productsList
+  //       : productsList.slice().sort((a, b) => a.title.localeCompare(b.title))
+  //   );
+  //   setIsSorted(!isSorted);
+  // };
+  // const debounceHandler = (value) => {
+  //   setTimeout(() => {
+  //     const filteredProducts = productsList.filter((product) =>
+  //       product.title.toLowerCase().includes(value.toLowerCase())
+  //     );
+  //     setProductsList(filteredProducts);
+  //   }, 1500);
+  // };
+  // return (
+  //   <>
+  //     <Search
+  //       onSort={handleSortClick}
+  //       onSearch={debounceHandler}
+  //       isSorted={isSorted}
+  //     />
+  //     <ProductsGallery products={productsList} />
+  //   </>
+  // );
 
-  useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((res) => setProductsList(res.products));
-  }, []);
+  const response = await fetch("https://dummyjson.com/products");
+  const data = await response.json();
+  const productsArr = data.products;
 
-  const handleSortClick = () => {
-    setProductsList(
-      isSorted
-        ? productsList
-        : productsList.slice().sort((a, b) => a.title.localeCompare(b.title))
-    );
-    setIsSorted(!isSorted);
-  };
-
-  const debounceHandler = (value) => {
-    setTimeout(() => {
-      const filteredProducts = productsList.filter((product) =>
-        product.title.toLowerCase().includes(value.toLowerCase())
-      );
-      setProductsList(filteredProducts);
-    }, 1500);
-  };
-
-  return (
-    <>
-      <Search
-        onSort={handleSortClick}
-        onSearch={debounceHandler}
-        isSorted={isSorted}
-      />
-      <ProductsGallery products={productsList} />
-    </>
-  );
+  return <ProductsGallery products={productsArr} />;
 }
 
 export default Home;

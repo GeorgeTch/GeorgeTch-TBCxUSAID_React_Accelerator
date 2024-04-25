@@ -1,22 +1,11 @@
-"use client";
-import { useEffect, useState } from "react";
-import blogData from "./blogData";
+import Blog from "@/app/(dashboard)/blog/page";
 import Image from "next/image";
 import Link from "next/link";
 
-function BlogList() {
-  // const handleImageError = (event) => {
-  //   event.target.onerror = null; // Prevent infinite loop in case the backup image also fails to load
-  //   event.target.src =
-  //     "https://images.unsplash.com/photo-1669568625853-9a5ae8de190e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZXJyb3IlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D";
-  // };
-  const [blogData, setBlogData] = useState([]);
-  useEffect(() => {
-    fetch("https://dummyjson.com/recipes")
-      .then((res) => res.json())
-      .then((res) => setBlogData(res.recipes));
-  }, []);
-
+async function BlogList() {
+  const response = await fetch("https://dummyjson.com/recipes");
+  const data = await response.json();
+  const blogData = data.recipes;
   return (
     <div className="blog-list-container">
       {blogData.map((blog) => (
@@ -26,10 +15,8 @@ function BlogList() {
               src={blog.image}
               alt={blog.name}
               className="blog-item-photo"
-              width={400}
+              width={300}
               height={200}
-              objectFit="cover"
-              objectPosition="center"
             />
           </div>
           <div>

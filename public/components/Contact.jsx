@@ -16,7 +16,9 @@ function Contact() {
           <p>randomuser123@example.com</p>
         </div>
       </div>
-      <p>For inquiries, please fill out the form below:</p>
+      <p className="bg-red-600 text-4xl">
+        For inquiries, please fill out the form below:
+      </p>
       <form className="contact-form" action="#">
         <div className="form-input">
           <label htmlFor="name">Name:</label>

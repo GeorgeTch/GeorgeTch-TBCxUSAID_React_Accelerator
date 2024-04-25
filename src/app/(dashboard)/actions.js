@@ -29,12 +29,12 @@ export async function login(username, password) {
 
 export async function logout() {
   "use server";
-  try {
-    const cookiesStore = cookies();
-    cookiesStore.delete("auth");
-    console.log("User logged out");
-    redirect("/login");
-  } catch (error) {
-    console.error("Logout failed:", error);
-  }
+  // try {
+  const cookiesStore = cookies();
+  cookiesStore.delete("auth");
+  console.log("User logged out");
+  redirect("/login");
+  // } catch (error) {
+  //   console.error("Logout failed:", error);
+  // }
 }
