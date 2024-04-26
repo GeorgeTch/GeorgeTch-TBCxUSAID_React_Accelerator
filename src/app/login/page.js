@@ -1,4 +1,4 @@
-"use server";
+// "use server";
 import { cookies } from "next/headers";
 import "../../../styles/login.css";
 import LoginForm from "../../../components/LoginForm";
@@ -15,14 +15,16 @@ async function LoginPage() {
     redirect("/");
   }
 
-  const handleLogin = async (username, password) => {
-    "use server";
-    await login(username, password);
-  };
+  // const handleLogin = async (username, password) => {
+  //   "use server";
+  //   await login(username, password);
+  // };
 
   return (
     <div className="login-page">
-      <LoginForm handleLogin={handleLogin} />
+      <LoginForm
+      // handleLogin={handleLogin}
+      />
     </div>
   );
 }
