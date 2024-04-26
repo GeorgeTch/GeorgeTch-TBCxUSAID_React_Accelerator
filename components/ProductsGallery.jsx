@@ -1,7 +1,9 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
 function Product({ id, title, description, images }) {
+  const t = useTranslations("Index");
   return (
     <div className="product">
       <div className="product-img-container">
@@ -11,7 +13,7 @@ function Product({ id, title, description, images }) {
       <p>{description}</p>
       <Link href={`/${id}`}>
         console.log(title);
-        <button>Add to Cart</button>
+        <button>{t("Product.addToCart")}</button>
       </Link>
     </div>
   );

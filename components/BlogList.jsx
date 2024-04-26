@@ -1,4 +1,4 @@
-import Blog from "@/app/(dashboard)/blog/page";
+import Blog from "@/app/[locale]/(dashboard)/blog/page";
 import Image from "next/image";
 import Link from "next/link";
 

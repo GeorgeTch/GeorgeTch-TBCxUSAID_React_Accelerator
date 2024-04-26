@@ -1,8 +1,8 @@
 // "use server";
 import { cookies } from "next/headers";
-import "../../../styles/login.css";
-import LoginForm from "../../../components/LoginForm";
-import { login } from "../(dashboard)/actions";
+import "../../../../styles/login.css";
+import LoginForm from "../../../../components/LoginForm";
+// import { login } from "../../../(dashboard)/actions";
 import { redirect } from "next/navigation";
 
 async function LoginPage() {

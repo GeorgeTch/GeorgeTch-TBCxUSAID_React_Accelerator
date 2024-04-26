@@ -1,6 +1,8 @@
 // "use client";
 // import { useRouter } from "next/navigation";
 
+import { useTranslations } from "next-intl";
+
 // function Logout({ handleLogout }) {
 //   const router = useRouter();
 
@@ -9,6 +11,7 @@
 // };
 
 function Logout() {
+  const t = useTranslations("Index");
   return (
     <form action="/api/logout" method="POST">
       <button
@@ -19,7 +22,7 @@ function Logout() {
         //   router.push("/login");
         // }}
       >
-        Log out
+        {t("Header.logout")}
       </button>
     </form>
   );

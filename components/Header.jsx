@@ -1,13 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logout from "./Logout";
-import { logout } from "@/app/(dashboard)/actions";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
-  async function handleLogout() {
-    "use server";
-    await logout();
-  }
+  // async function handleLogout() {
+  //   "use server";
+  //   await logout();
+  // }
+  const t = useTranslations("Index");
   return (
     <header className="header">
       <div className="container">
@@ -19,21 +21,26 @@ export default function Header() {
         <nav className="nav-links">
           <ul>
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/">{t("Header.home")}</Link>
             </li>
             <li>
-              <Link href="/profile">Profile</Link>
+              <Link href="/profile">{t("Header.profile")}</Link>
             </li>
             <li>
-              <Link href="/blog">Blog</Link>
+              <Link href="/blog">{t("Header.blog")}</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact">{t("Header.contact")}</Link>
             </li>
             <li></li>
           </ul>
         </nav>
-        <Logout handleLogout={handleLogout} />
+        <div className="flex">
+          <LanguageSwitcher />
+          <Logout
+          // handleLogout={handleLogout}
+          />
+        </div>
       </div>
     </header>
   );

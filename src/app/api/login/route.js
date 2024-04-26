@@ -11,17 +11,18 @@ export async function POST(request) {
       password: formData.get("password"),
     }),
   });
+  const user = await response.json();
 
   if (!response.ok) {
-    throw new Error(
-      `Login failed, can't fetch user information statuscode: ${response.status}`
-    );
+    console.log(user.message);
+    redirect("/login");
   }
-  const user = await response.json();
   const cookiesStore = cookies();
   cookiesStore.set("auth", JSON.stringify(user));
 
-  if (response.ok) {
+  if (user.username === formData.get("username")) {
     redirect("/");
+  } else {
+    redirect("/login");
   }
 }

@@ -1,0 +1,20 @@
+{
+  "Index": {
+    "Header": {
+      "home": "Home",
+      "profile": "Profile",
+      "blog": "Blog",
+      "contact": "Contact",
+      "logout": "Log Out"
+    },
+
+    "Product": {
+      "addToCart": "Add to Cart"
+    },
+
+    "Footer": {
+      "terms": "Terms & Conditions",
+      "policy": "Privacy Policy"
+    }
+  }
+}
