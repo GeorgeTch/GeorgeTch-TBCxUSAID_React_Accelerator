@@ -1,9 +1,9 @@
 import "../globals.css";
-import Header from "../../../public/components/Header";
-import Footer from "../../../public/components/Footer";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import Logout from "../../../public/components/Logout";
+import Logout from "../../../components/Logout";
 
 export default async function DashLayout({ children }) {
   const cookiesStore = cookies();

@@ -1,5 +1,5 @@
-import BlogList from "../../../../public/components/BlogList";
-import "../../../../public/styles/blog.css";
+import BlogList from "../../../../components/BlogList";
+import "../../../../styles/blog.css";
 
 function Blog() {
   return (

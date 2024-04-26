@@ -1,7 +1,7 @@
-import ProductsGallery from "../../../public/components/ProductsGallery";
-import Search from "../../../public/components/Search";
-import "/public/styles/home.css";
-import Logout from "../../../public/components/Logout";
+import ProductsGallery from "../../../components/ProductsGallery";
+import Search from "../../../components/Search";
+import "../../../styles/home.css";
+import Logout from "../../../components/Logout";
 
 async function Home() {
   // const [isSorted, setIsSorted] = useState(false);

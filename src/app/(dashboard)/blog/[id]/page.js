@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import "../../../../../public/styles/blog.css";
+import "../../../../../styles/blog.css";
 
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/recipes");

@@ -1,5 +1,5 @@
-import Profile from "../../../../public/components/Profile";
-import "../../../../public/styles/profile.css";
+import Profile from "../../../../components/Profile";
+import "../../../../styles/profile.css";
 
 function ProfilePage() {
   return <Profile />;

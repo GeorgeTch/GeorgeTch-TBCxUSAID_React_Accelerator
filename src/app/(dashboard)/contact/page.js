@@ -1,5 +1,5 @@
-import Contact from "../../../../public/components/Contact";
-import "../../../../public/styles/contact.css";
+import Contact from "../../../../components/Contact";
+import "../../../../styles/contact.css";
 
 function ContactPage() {
   return <Contact />;

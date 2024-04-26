@@ -1,7 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
-import "../../../public/styles/login.css";
-import LoginForm from "../../../public/components/LoginForm";
+import "../../../styles/login.css";
+import LoginForm from "../../../components/LoginForm";
 import { login } from "../(dashboard)/actions";
 import { redirect } from "next/navigation";
 
