@@ -3,6 +3,7 @@ import Image from "next/image";
 import Logout from "./Logout";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Header() {
   // async function handleLogout() {
@@ -37,6 +38,7 @@ export default function Header() {
         </nav>
         <div className="flex">
           <LanguageSwitcher />
+          <ThemeSwitcher />
           <Logout
           // handleLogout={handleLogout}
           />

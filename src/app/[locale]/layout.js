@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { Providers } from "./providers";
 // Can be imported from a shared config
 const locales = ["en", "ka"];
 
@@ -18,7 +18,9 @@ export default function RootLayout({ children, params }) {
   return (
     <html lang={params.locale}>
       <body className={inter.className}>
-        <>{children}</>
+        <Providers>
+          <>{children}</>
+        </Providers>
       </body>
     </html>
   );

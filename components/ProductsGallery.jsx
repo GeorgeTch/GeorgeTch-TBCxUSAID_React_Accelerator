@@ -12,7 +12,6 @@ function Product({ id, title, description, images }) {
       <h2>{title}</h2>
       <p>{description}</p>
       <Link href={`/${id}`}>
-        console.log(title);
         <button>{t("Product.addToCart")}</button>
       </Link>
     </div>
