@@ -16,11 +16,9 @@ export const metadata = {
 
 export default function RootLayout({ children, params }) {
   return (
-    <html lang={params.locale}>
+    <html lang={params.locale} suppressHydrationWarning>
       <body className={inter.className}>
-        <Providers>
-          <>{children}</>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
