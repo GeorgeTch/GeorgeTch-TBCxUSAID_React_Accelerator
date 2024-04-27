@@ -1,10 +1,13 @@
 // "use client";
 // import { useState } from "react";
 
+import { useTranslations } from "next-intl";
+
 // function LoginForm({ handleLogin }) {
 //   const [userName, setUserName] = useState("");
 //   const [password, setPassword] = useState("");
 function LoginForm() {
+  const t = useTranslations("Login");
   return (
     <form
       className="login-form"
@@ -14,7 +17,7 @@ function LoginForm() {
       action="/api/login"
       method="POST"
     >
-      <label htmlFor="userName">Username</label>
+      <label htmlFor="userName">{t("username")}</label>
       <input
         type="text"
         id="userName"
@@ -23,7 +26,7 @@ function LoginForm() {
         // value={userName}
         // onChange={(e) => setUserName(e.target.value)}
       />
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password">{t("password")}</label>
       <input
         type="password"
         id="password"
@@ -36,7 +39,7 @@ function LoginForm() {
         type="submit"
         // onClick={() => handleLogin(userName, password)}
       >
-        Log in
+        {t("login")}
       </button>
     </form>
   );

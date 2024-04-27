@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import "../../../../../styles/home.css";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/products");
@@ -11,6 +13,8 @@ export async function generateStaticParams() {
 }
 
 async function ProductItemPage({ params }) {
+  // const t = useTranslations("Index"); -- error :  Expected a suspended thenable. why?
+  unstable_setRequestLocale(params.locale);
   const response = await fetch(`https://dummyjson.com/products/${params.id}`);
   const item = await response.json();
 

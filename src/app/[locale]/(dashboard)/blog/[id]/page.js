@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
-import "../../../../../styles/blog.css";
+import "../../../../../../styles/blog.css";
+import { unstable_setRequestLocale } from "next-intl/server";
+
+import { useTranslations } from "next-intl";
 
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/recipes");
@@ -14,9 +17,10 @@ export async function generateStaticParams() {
 }
 
 async function BlogPage({ params }) {
+  unstable_setRequestLocale(params.locale);
   const response = await fetch(`https://dummyjson.com/recipes/${params.id}`);
   const data = await response.json();
-
+  // const t = useTranslations("Blog");
   return (
     <>
       <Head>

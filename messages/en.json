@@ -9,12 +9,35 @@
     },
 
     "Product": {
-      "addToCart": "Add to Cart"
+      "addToCart": "Add to Cart",
+      "goBack": "Go Back"
     },
 
     "Footer": {
       "terms": "Terms & Conditions",
       "policy": "Privacy Policy"
     }
+  },
+
+  "Login": {
+    "username": "Username",
+    "password": "Password",
+    "login": "Log in"
+  },
+
+  "Blog": {
+    "readMore": "Read More",
+    "goBack": "Return to the Blog Page"
+  },
+
+  "Contact": {
+    "contactUs": "Contact Us",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "forInquiries": "For inquiries, please fill out the form below:",
+    "name": "Name",
+    "message": "Message",
+    "submit": "Submit"
   }
 }
