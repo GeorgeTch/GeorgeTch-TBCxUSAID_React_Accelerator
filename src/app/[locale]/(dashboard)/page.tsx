@@ -2,6 +2,7 @@ import ProductsGallery from "../../../../components/ProductsGallery";
 import Search from "../../../../components/Search";
 import "../../../../styles/home.css";
 import Logout from "../../../../components/Logout";
+import { ProductsResponse, Products } from "../../../../types/types";
 
 async function Home() {
   // const [isSorted, setIsSorted] = useState(false);
@@ -38,7 +39,7 @@ async function Home() {
   //   </>
   // );
   const response = await fetch("https://dummyjson.com/products");
-  const data = await response.json();
+  const data: ProductsResponse = await response.json();
   const productsArr = data.products;
 
   return <ProductsGallery products={productsArr} />;
