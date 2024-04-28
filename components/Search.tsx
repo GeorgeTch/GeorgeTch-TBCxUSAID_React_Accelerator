@@ -1,7 +1,7 @@
 export default function Search({ onSort, onSearch, isSorted }) {
   // const [searchValue, setSearchValue] = useState("");
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     // setSearchValue(value);
     onSearch(value);

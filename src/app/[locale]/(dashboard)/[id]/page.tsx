@@ -3,10 +3,11 @@ import Link from "next/link";
 import "../../../../../styles/home.css";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
+import { Products, ProductsResponse } from "../../../../../types/types";
 
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/products");
-  const data = await response.json();
+  const data: ProductsResponse = await response.json();
   const products = data.products;
 
   return products.map((product) => ({ id: product.id.toString() }));

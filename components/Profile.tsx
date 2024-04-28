@@ -1,8 +1,14 @@
 "use client";
 import { useState } from "react";
 
+interface Profile {
+  name: string;
+  lastName: string;
+  email: string;
+}
+
 function Profile() {
-  const profileInfo = {
+  const profileInfo: Profile = {
     name: "Jakob",
     lastName: "Simpson",
     email: "SimpsonJ@gmail.com",
@@ -11,11 +17,13 @@ function Profile() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handlePasswordInput = (event) => {
+  const handlePasswordInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  const handleConfirmPasswordInput = (event) => {
+  const handleConfirmPasswordInput = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setConfirmPassword(event.target.value);
   };
   console.log(password, confirmPassword);

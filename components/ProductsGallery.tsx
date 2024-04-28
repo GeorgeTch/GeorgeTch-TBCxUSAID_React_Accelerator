@@ -1,8 +1,9 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import { Products } from "../types/types";
 
-function Product({ id, title, description, images }) {
+function Product({ id, title, description, images }: Products) {
   const t = useTranslations("Index");
   return (
     <div className="product">
@@ -21,7 +22,7 @@ function Product({ id, title, description, images }) {
 export default function ProductsGallery({ products }) {
   return (
     <div className="products-container">
-      {products.map((product, id) => (
+      {products.map((product: Products, id: number) => (
         <Product key={id} {...product} />
       ))}
     </div>

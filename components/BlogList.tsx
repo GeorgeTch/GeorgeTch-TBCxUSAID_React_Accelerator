@@ -1,12 +1,12 @@
-import Blog from "@/app/[locale]/(dashboard)/blog/page";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-
+import { Recipes, BlogsResponse } from "../types/types";
 async function BlogList() {
   const response = await fetch("https://dummyjson.com/recipes");
-  const data = await response.json();
-  const blogData = data.recipes;
+  const data: BlogsResponse = await response.json();
+  const blogData: Recipes[] = data.recipes;
+
   // const t = useTranslations("Blog"); -- Error: `useTranslations` is not callable within an async component
   return (
     <div className="blog-list-container">

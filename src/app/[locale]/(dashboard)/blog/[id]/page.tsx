@@ -3,12 +3,12 @@ import Link from "next/link";
 import Head from "next/head";
 import "../../../../../../styles/blog.css";
 import { unstable_setRequestLocale } from "next-intl/server";
-
 import { useTranslations } from "next-intl";
+import { Recipes, BlogsResponse } from "../../../../../../types/types";
 
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/recipes");
-  const data = await response.json();
+  const data: BlogsResponse = await response.json();
   const blogItems = data.recipes;
 
   return blogItems.map((item) => ({
@@ -16,10 +16,15 @@ export async function generateStaticParams() {
   }));
 }
 
-async function BlogPage({ params }) {
+interface BlogParams {
+  id: number;
+  locale: string;
+}
+
+async function BlogPage({ params }: { params: BlogParams }) {
   unstable_setRequestLocale(params.locale);
   const response = await fetch(`https://dummyjson.com/recipes/${params.id}`);
-  const data = await response.json();
+  const data: Recipes = await response.json();
   // const t = useTranslations("Blog");
   return (
     <>

@@ -9,7 +9,7 @@ function LanguageSwitcher() {
   //path without locale
   const path = usePathname().slice(3);
 
-  const onSelectChange = (e) => {
+  const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
     router.replace(`/${nextLocale}${path}`);
   };

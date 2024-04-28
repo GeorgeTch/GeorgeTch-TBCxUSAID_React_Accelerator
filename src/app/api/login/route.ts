@@ -1,7 +1,18 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function POST(request) {
+interface UserResponse {
+  id: number;
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  image: string;
+  token: string;
+}
+
+export async function POST(request: Request) {
   const formData = await request.formData();
   const response = await fetch("https://dummyjson.com/auth/login", {
     method: "POST",
@@ -11,10 +22,9 @@ export async function POST(request) {
       password: formData.get("password"),
     }),
   });
-  const user = await response.json();
+  const user: UserResponse = await response.json();
 
   if (!response.ok) {
-    console.log(user.message);
     redirect("/login");
   }
   const cookiesStore = cookies();
