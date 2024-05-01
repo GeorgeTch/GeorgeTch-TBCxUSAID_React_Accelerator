@@ -7,7 +7,7 @@ function LanguageSwitcher() {
   const router = useRouter();
   const activeLocale = useLocale();
   //path without locale
-  const path = usePathname().slice(3);
+  const path = usePathname().slice(0);
 
   const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
