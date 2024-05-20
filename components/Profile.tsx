@@ -26,7 +26,7 @@ function Profile() {
   ) => {
     setConfirmPassword(event.target.value);
   };
-  console.log(password, confirmPassword);
+  // console.log(password, confirmPassword);
 
   return (
     <div className="profile-container">

@@ -36,7 +36,10 @@ export default function Header() {
             <li></li>
           </ul>
         </nav>
-        <div className="flex">
+        <div className="flex items-center gap-3">
+          <Link href="/admin" className="border-lg">
+            {t("Header.admin")}
+          </Link>
           <LanguageSwitcher />
           <ThemeSwitcher />
           <Logout

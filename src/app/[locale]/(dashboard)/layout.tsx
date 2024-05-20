@@ -8,7 +8,7 @@ import Logout from "../../../../components/Logout";
 export default async function DashLayout({ children }) {
   const cookiesStore = cookies();
   const cookie = cookiesStore.get("auth");
-  console.log("coockie on layout page: ", cookie);
+  // console.log("coockie on layout page: ", cookie);
   // if (!cookie) {
   //   console.log("redirect from layout to login nocoockie");
   //   redirect("/login");

@@ -1,3 +1,38 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+import {
+  BASE_URL,
+  createUser,
+  deleteUser,
+  updateUser,
+} from "../../api/api-functions";
+
+export async function createUserAction(formdata: FormData) {
+  const { name, email, age } = Object.fromEntries(formdata);
+  await createUser(name as string, email as string, age as string);
+  console.log(name, email, age);
+  revalidatePath("/admin");
+}
+
+export async function deleteUserAction(id: number) {
+  await deleteUser(id);
+  console.log("user: ", id);
+  revalidatePath("/admin");
+}
+
+export async function updateUserAction(formdata: FormData) {
+  const { id, name, email, age } = Object.fromEntries(formdata);
+  await updateUser(
+    id as string,
+    name as string,
+    email as string,
+    age as string
+  );
+  console.log(id, name, email, age);
+  revalidatePath("/admin");
+}
+
 // import { cookies } from "next/headers";
 // import { redirect } from "next/navigation";
 

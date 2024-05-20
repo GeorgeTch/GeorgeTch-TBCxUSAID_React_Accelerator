@@ -16,7 +16,7 @@ function LanguageSwitcher() {
 
   return (
     <select
-      className="border-2 rounded hover:opacity-60 cursor-pointer"
+      className="p-1 border-2 rounded hover:opacity-60 cursor-pointer"
       onChange={onSelectChange}
       defaultValue={activeLocale}
     >
