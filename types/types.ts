@@ -38,3 +38,12 @@ export interface Recipes {
 export interface BlogsResponse {
   recipes: Recipes[];
 }
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  age: number;
+}
+
+export interface Users extends Array<User> {}
