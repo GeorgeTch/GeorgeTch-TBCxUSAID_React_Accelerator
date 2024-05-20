@@ -6,7 +6,7 @@ import { Products } from "../types/types";
 function Product({ id, title, description, images }: Products) {
   const t = useTranslations("Index");
   return (
-    <div className="product">
+    <div className="product ">
       <div className="product-img-container">
         <Image src={images[0]} alt={title} width={250} height={200} />
       </div>
@@ -21,7 +21,7 @@ function Product({ id, title, description, images }: Products) {
 
 export default function ProductsGallery({ products }) {
   return (
-    <div className="products-container">
+    <div className="products-container flex items-center h-full">
       {products.map((product: Products, id: number) => (
         <Product key={id} {...product} />
       ))}

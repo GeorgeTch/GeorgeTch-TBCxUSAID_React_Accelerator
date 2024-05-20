@@ -8,10 +8,10 @@ import { redirect } from "next/navigation";
 async function LoginPage() {
   const cookiesStore = cookies();
   const cookie = cookiesStore.get("auth");
-  console.log("coockie on login page: ", cookie);
+  // console.log("coockie on login page: ", cookie);
 
   if (cookie) {
-    console.log("trying to redirect from login page to home");
+    // console.log("trying to redirect from login page to home");
     redirect("/");
   }
 

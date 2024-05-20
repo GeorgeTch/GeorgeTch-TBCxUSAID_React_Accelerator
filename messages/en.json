@@ -5,7 +5,8 @@
       "profile": "Profile",
       "blog": "Blog",
       "contact": "Contact",
-      "logout": "Log Out"
+      "logout": "Log Out",
+      "admin": "Admin"
     },
 
     "Product": {
