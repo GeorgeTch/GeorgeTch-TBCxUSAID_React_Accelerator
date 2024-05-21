@@ -1,7 +1,8 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getUsers() {
   const response = await fetch(BASE_URL + "/api/get-users");
+  console.log(BASE_URL);
   const { users } = await response.json();
   return users.rows;
 }
