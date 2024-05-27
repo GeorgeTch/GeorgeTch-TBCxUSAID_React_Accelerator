@@ -4,6 +4,7 @@ import Logout from "./Logout";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
+import logo from "../public/logo.png";
 
 export default function Header() {
   // async function handleLogout() {
@@ -16,7 +17,7 @@ export default function Header() {
       <div className="container">
         <div className="logo">
           <Link href="/">
-            <Image src="/logo.png" width={70} height={70} alt="Company Logo" />
+            <Image src={logo} width={70} height={70} alt="Company Logo" />
           </Link>
         </div>
         <nav className="nav-links">
