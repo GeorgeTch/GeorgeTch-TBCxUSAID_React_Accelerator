@@ -4,6 +4,7 @@ import Logout from "./Logout";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
+import CartIcon from "./CartIcon";
 import logo from "../public/logo.png";
 
 export default function Header() {
@@ -34,15 +35,17 @@ export default function Header() {
             <li>
               <Link href="/contact">{t("Header.contact")}</Link>
             </li>
-            <li></li>
+            <li>
+              <Link href="/admin" className="border-lg">
+                {t("Header.admin")}
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="flex items-center gap-3">
-          <Link href="/admin" className="border-lg">
-            {t("Header.admin")}
-          </Link>
           <LanguageSwitcher />
           <ThemeSwitcher />
+          <CartIcon />
           <Logout
           // handleLogout={handleLogout}
           />

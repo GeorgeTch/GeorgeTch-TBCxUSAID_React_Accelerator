@@ -2,9 +2,9 @@ import ProductsGallery from "../../../../components/ProductsGallery";
 import Search from "../../../../components/Search";
 import "../../../../styles/home.css";
 import Logout from "../../../../components/Logout";
-import { ProductsResponse, Products } from "../../../../types/types";
+import { ProductsResponse } from "../../../../types/types";
 
-async function Home() {
+export default async function Home() {
   // const [isSorted, setIsSorted] = useState(false);
   // const [productsList, setProductsList] = useState([]);
   // useEffect(() => {
@@ -44,5 +44,3 @@ async function Home() {
 
   return <ProductsGallery products={productsArr} />;
 }
-
-export default Home;
