@@ -1,8 +1,5 @@
 "use client";
-import {
-  createUserAction,
-  updateUserAction,
-} from "../../src/app/[locale]/(dashboard)/actions";
+import { createUserAction, updateUserAction } from "../../src/app/actions";
 import { BiUserPlus } from "react-icons/bi";
 import { useState, useRef, useEffect } from "react";
 

@@ -34,3 +34,52 @@ export async function updateUser(
     },
   });
 }
+
+export async function getCartItems() {
+  try {
+    const response = await fetch(BASE_URL + "/api/get-cart-items");
+    const { cart } = await response.json();
+    console.log(cart);
+    return cart.rows;
+  } catch (error) {
+    console.error("Can't fetch cart data: ", error);
+  }
+}
+
+export async function createCartItem(productId: number) {
+  const response = await fetch(`${BASE_URL}/api/create-cart-item`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ productId }),
+  });
+
+  return response;
+}
+
+export async function resetCart() {
+  const response = await fetch(`${BASE_URL}/api/reset-cart`, {
+    method: "DELETE",
+  });
+
+  return response;
+}
+
+export async function cartItemDecrement(productId: number) {
+  return await fetch(`${BASE_URL}/api/decrease-cart-item-qty/${productId}`, {
+    method: "POST",
+    body: JSON.stringify({ productId }),
+  });
+}
+
+export async function removeCartItem(productId: number) {
+  const response = await fetch(`${BASE_URL}/api/remove-cart-item`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ productId }),
+  });
+  return response.json();
+}

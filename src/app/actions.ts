@@ -2,11 +2,14 @@
 
 import { revalidatePath } from "next/cache";
 import {
-  BASE_URL,
   createUser,
   deleteUser,
   updateUser,
-} from "../../api/api-functions";
+  createCartItem,
+  resetCart,
+  cartItemDecrement,
+  removeCartItem,
+} from "./api/api-functions";
 
 export async function createUserAction(formdata: FormData) {
   const { name, email, age } = Object.fromEntries(formdata);
@@ -31,6 +34,26 @@ export async function updateUserAction(formdata: FormData) {
   );
   console.log(id, name, email, age);
   revalidatePath("/admin");
+}
+
+export async function createCartItemAction(productId: number) {
+  await createCartItem(productId);
+  revalidatePath("/");
+}
+
+export async function resetCartAction() {
+  await resetCart();
+  revalidatePath("/cart");
+}
+
+export async function cartItemDecrementAction(productId: number) {
+  await cartItemDecrement(productId);
+  revalidatePath("/cart");
+}
+
+export async function removeCartItemAction(productId: number) {
+  await removeCartItem(productId);
+  revalidatePath("/cart");
 }
 
 // import { cookies } from "next/headers";

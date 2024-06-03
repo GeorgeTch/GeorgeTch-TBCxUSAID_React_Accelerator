@@ -3,7 +3,8 @@ import Link from "next/link";
 import "../../../../../styles/home.css";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { useTranslations } from "next-intl";
-import { Products, ProductsResponse } from "../../../../../types/types";
+import { Product, ProductsResponse } from "../../../../../types/types";
+import AddToCartBtn from "../../../../../components/AddToCartBtn";
 
 export async function generateStaticParams() {
   const response = await fetch("https://dummyjson.com/products");
@@ -16,30 +17,38 @@ export async function generateStaticParams() {
 async function ProductItemPage({ params }) {
   // const t = useTranslations("Index"); -- error :  Expected a suspended thenable. why?
   unstable_setRequestLocale(params.locale);
-  const response = await fetch(`https://dummyjson.com/products/${params.id}`);
-  const item = await response.json();
+  try {
+    const response = await fetch(`https://dummyjson.com/products/${params.id}`);
+    let item;
+    console.log(response.ok);
+    if (response.ok) {
+      item = await response.json();
+    }
 
-  return (
-    <div className="product-page">
-      <Link href={"/"}>
-        <button>Go Back</button>
-      </Link>
+    return (
+      <div className="product-page">
+        <Link href={"/"}>
+          <button>Go Back</button>
+        </Link>
 
-      <div className="product">
-        <Image
-          loading="lazy"
-          src={item.images && item.images[0]}
-          alt={item.title}
-          width={300}
-          height={200}
-        />
+        <div className="product">
+          <Image
+            loading="lazy"
+            src={item.images && item.images[0]}
+            alt={item.title}
+            width={300}
+            height={200}
+          />
 
-        <h2>{item.title}</h2>
-        <p>{item.description}</p>
-        <button>Add to Cart</button>
+          <h2>{item.title}</h2>
+          <p>{item.description}</p>
+          <AddToCartBtn id={item.id} />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Invalid Product ID: ", error);
+  }
 }
 
 export default ProductItemPage;

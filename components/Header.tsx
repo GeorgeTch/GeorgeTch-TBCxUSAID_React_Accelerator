@@ -4,6 +4,8 @@ import Logout from "./Logout";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ThemeSwitcher from "./ThemeSwitcher";
+import CartIcon from "./CartIcon";
+import logo from "../public/logo.png";
 
 export default function Header() {
   // async function handleLogout() {
@@ -16,7 +18,7 @@ export default function Header() {
       <div className="container">
         <div className="logo">
           <Link href="/">
-            <Image src="/logo.png" width={70} height={70} alt="Company Logo" />
+            <Image src={logo} width={70} height={70} alt="Company Logo" />
           </Link>
         </div>
         <nav className="nav-links">
@@ -33,15 +35,17 @@ export default function Header() {
             <li>
               <Link href="/contact">{t("Header.contact")}</Link>
             </li>
-            <li></li>
+            <li>
+              <Link href="/admin" className="border-lg">
+                {t("Header.admin")}
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="flex items-center gap-3">
-          <Link href="/admin" className="border-lg">
-            {t("Header.admin")}
-          </Link>
           <LanguageSwitcher />
           <ThemeSwitcher />
+          <CartIcon />
           <Logout
           // handleLogout={handleLogout}
           />

@@ -2,7 +2,7 @@
 import { revalidatePath } from "next/cache";
 import deleteSvg from "../public/icons/delete.svg";
 
-import { deleteUserAction } from "../../src/app/[locale]/(dashboard)/actions";
+import { deleteUserAction } from "../../src/app/actions";
 
 function DeleteUserBtn({ id }) {
   return (

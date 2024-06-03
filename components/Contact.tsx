@@ -1,4 +1,6 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import image from "../public/images.jpg";
 
 function Contact() {
   const t = useTranslations("Contact");

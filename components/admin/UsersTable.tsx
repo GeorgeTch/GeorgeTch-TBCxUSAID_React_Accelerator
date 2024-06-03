@@ -3,10 +3,7 @@ import React from "react";
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { useState } from "react";
 import { User } from "../../types/types";
-import {
-  deleteUserAction,
-  updateUserAction,
-} from "../../src/app/[locale]/(dashboard)/actions";
+import { deleteUserAction, updateUserAction } from "../../src/app/actions";
 import AddUserForm from "./AddUserForm";
 import AddUserBtn from "./AddUserBtn";
 
